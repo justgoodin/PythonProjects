@@ -1,2 +1,3 @@
 import datetime
-datetime.datetime.now()
+time = datetime.datetime.now()
+print(time)
