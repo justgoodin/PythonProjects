@@ -1,3 +1,3 @@
 import datetime
 time = datetime.datetime.now()
-print(time)
+print("The date and time is:",time)
