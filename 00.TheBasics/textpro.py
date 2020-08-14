@@ -6,5 +6,13 @@ def sentence_maker(phrase):
     else:
         return "{}.".format(capitalized)
 
+output = []
 
-print(sentence_maker("how are you"))
+while True:
+    userInput = input()
+    if userInput == "\end":
+        break
+    else:
+        output.append(sentence_maker(userInput))
+
+print("".join(output))
