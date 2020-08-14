@@ -10,7 +10,7 @@ output = []
 
 while True:
     userInput = input()
-    if userInput == "\end":
+    if userInput == "end":
         break
     else:
         output.append(sentence_maker(userInput))
