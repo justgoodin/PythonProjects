@@ -7,13 +7,13 @@ while True:
     output = translate(word)
     if output[0] == False:
         i = 1
-        print(f"{word} means:")
+        print(f"'{word}' means:")
         for item in output[1]:
-            print(f"{i}. {item}")
+            print(f"{i}. {item[1]}")
             i += 1
         break
     else:
-        print(f"Did you mean \"{output[1]}\"?")
+        print(f"Did you mean '{output[1]}'?")
         print("Enter Y for yes, R to Retry, any other key to exit: ",end="")
         similar = input().strip()
         if similar == "Y" or similar == "y":
