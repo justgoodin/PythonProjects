@@ -13,9 +13,13 @@ elevation = get_elevation()
 map = folium.Map(location=[max_lat, max_lon], zoom_start=5,tiles = "Stamen Terrain")
 fg = folium.FeatureGroup(name="My Map")
 
+html_style = """<h4>Volcano information:</h4>
+Height: %s m
+"""
 
 for coordinate,el in zip(coordinates,elevation):
-    fg.add_child(folium.Marker(location=coordinate,popup=el,icon=folium.Icon(color='red')))
+    iframe = folium.IFrame(html=html_style % str(el),width=175,height=100)
+    fg.add_child(folium.Marker(location=coordinate,popup=folium.Popup(iframe),icon=folium.Icon(color='red')))
 
 map.add_child(fg)
 map.save(path+"/generated_maps/volcanoes.html")
