@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://rawcdn.githack.com/python-visualization/folium/master/folium/templates/leaflet.awesome.rotate.css"/>
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c948d3f610874bc4a77b6c7f7054ecd3 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_c948d3f610874bc4a77b6c7f7054ecd3" ></div>
+        
+</body>
+<script>    
+    
+            var map_c948d3f610874bc4a77b6c7f7054ecd3 = L.map(
+                "map_c948d3f610874bc4a77b6c7f7054ecd3",
+                {
+                    center: [22.5, 88.3],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_ab2c17a75fc645c18d32794f5ad179df = L.tileLayer(
+                "https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+                {"attribution": "Map tiles by \u003ca href=\"http://stamen.com\"\u003eStamen Design\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by/3.0\"\u003eCC BY 3.0\u003c/a\u003e. Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://creativecommons.org/licenses/by-sa/3.0\"\u003eCC BY SA\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_c948d3f610874bc4a77b6c7f7054ecd3);
+        
+    
+            var feature_group_352cc4e2392447d480e1a6a353d23d1d = L.featureGroup(
+                {}
+            ).addTo(map_c948d3f610874bc4a77b6c7f7054ecd3);
+        
+    
+            var marker_b669343c2fd1449a97e29004acec8601 = L.marker(
+                [22.58, 88.38],
+                {}
+            ).addTo(feature_group_352cc4e2392447d480e1a6a353d23d1d);
+        
+    
+            var icon_f54f1da8ce5f4e0c8e00e96f92f9b08b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_b669343c2fd1449a97e29004acec8601.setIcon(icon_f54f1da8ce5f4e0c8e00e96f92f9b08b);
+        
+    
+        var popup_e9dfb4d4a91242fb8c4dd2c53601e0e2 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_eec900eab2c1408fa3ff7fee19b4fa7a = $(`<div id="html_eec900eab2c1408fa3ff7fee19b4fa7a" style="width: 100.0%; height: 100.0%;">Hi I am Kolkata</div>`)[0];
+            popup_e9dfb4d4a91242fb8c4dd2c53601e0e2.setContent(html_eec900eab2c1408fa3ff7fee19b4fa7a);
+        
+
+        marker_b669343c2fd1449a97e29004acec8601.bindPopup(popup_e9dfb4d4a91242fb8c4dd2c53601e0e2)
+        ;
+
+        
+    
+</script>
