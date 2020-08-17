@@ -39,6 +39,7 @@ def update(item,quantity, price) :
     cur.commit()
     conn.close() #5 Close connection
 
+#create_table()
 #insert('Phone',50,150)
 #insert('Book',2,10.5)
 #delete('Phone')
