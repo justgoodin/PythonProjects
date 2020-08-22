@@ -1,8 +1,13 @@
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen
+from hoverable import HoverBehavior
+from kivy.uix.image import Image
+from kivy.uix.behaviors import ButtonBehavior
 from datetime import datetime
-import json
+import json, glob, random
+from pathlib import Path
+
 
 Builder.load_file("design.kv")
 
@@ -11,7 +16,14 @@ class LoginScreen(Screen):
     def sign_up(self):
         self.manager.current = "sign_up_screen"
 
-
+    def login(self, uname, passwd):
+        with open("users.json") as file:
+            users = json.load(file)
+        if uname in users and users[uname]['password'] == passwd:
+            self.manager.current = 'login_screen_success'
+        else:
+            self.ids.login_failed.text = "Wrong Username or Password"
+          
 class RootWidget(ScreenManager):
     pass
 
@@ -35,6 +47,22 @@ class LoginScreenSuccess(Screen):
     def log_out(self):
         self.manager.transition.direction = "right"
         self.manager.current = "login_screen"
+    
+    def get_quote (self, feeling):
+        feeling = feeling.lower()
+        available_feelings = glob.glob("quotes/*txt")
+        available_feelings = [Path(filename).stem for filename in available_feelings]
+        
+        if feeling in available_feelings:
+            with open(f"quotes/{feeling}.txt",encoding="utf8") as file:
+                quotes = file.readlines()
+            self.ids.quote.text = random.choice(quotes)
+        else:
+            self.ids.quote.text = "Try another feeling"
+
+class ImageButton(ButtonBehavior, HoverBehavior, Image):
+    pass
+
 
 class MainApp(App):
     def build(self):
@@ -42,6 +70,5 @@ class MainApp(App):
 
 
 if __name__ == "__main__":
-    #print()
     app = MainApp()
     app.run()
