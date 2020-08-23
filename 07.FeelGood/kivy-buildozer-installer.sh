@@ -9,10 +9,10 @@ sudo python3 get-pip.py
 # Dependencies with SDL2
 # Install necessary system packages
 sudo apt-get install -y \
-    python-pip \
+    python3-pip \
     build-essential \
     git \
-    python \
+    python3 \
     python3-dev \
     ffmpeg \
     libsdl2-dev \
@@ -29,7 +29,7 @@ sudo apt-get install -y \
 sudo pip3 install cython
 
 # Install Kivy
-sudo pip3 install kivy
+# sudo pip3 install kivy
 
 # Dependencies Buildozer
 sudo apt-get install -y \
