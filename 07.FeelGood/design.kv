@@ -1,3 +1,4 @@
+#:kivy! 1.11.1
 <LoginScreen>:
     GridLayout:
         cols: 1
@@ -75,7 +76,7 @@
         spacing: 15, 15
         RelativeLayout:
             ImageButton:
-                source: "icons/logout_hover.png" if self.hovered else "icons/logout_nothover.png"
+                source: "logout_hover.png" if self.hovered else "logout_nothover.png"
                 on_press: root.log_out()
                 size_hint: 0.35, 0.35
                 pos_hint: {'centre_x': 0.93, 'center_y': 0.8}
