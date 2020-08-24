@@ -5,7 +5,9 @@ from hoverable import HoverBehavior
 from kivy.uix.image import Image
 from kivy.uix.behaviors import ButtonBehavior
 from datetime import datetime
-import json, glob, random
+import json
+import glob
+import random
 from pathlib import Path
 
 
@@ -23,7 +25,8 @@ class LoginScreen(Screen):
             self.manager.current = 'login_screen_success'
         else:
             self.ids.login_failed.text = "Wrong Username or Password"
-          
+
+
 class RootWidget(ScreenManager):
     pass
 
@@ -32,33 +35,38 @@ class SignUpScreen(Screen):
     def add_user(self, uname, passwd):
         with open("users.json") as file:
             users = json.load(file)
-        users[uname] = {'username': uname, 'password': passwd, 'created': datetime.now().strftime("%Y-%m-%d %H-%M-%S")}
+        users[uname] = {'username': uname, 'password': passwd,
+                        'created': datetime.now().strftime("%Y-%m-%d %H-%M-%S")}
 
-        with open("users.json",'w') as file:
+        with open("users.json", 'w') as file:
             json.dump(users, file)
         self.manager.current = "sign_up_screen_success"
+
 
 class SignUpScreenSuccess(Screen):
     def go_to_login(self):
         self.manager.transition.direction = 'right'
         self.manager.current = "login_screen"
 
+
 class LoginScreenSuccess(Screen):
     def log_out(self):
         self.manager.transition.direction = "right"
         self.manager.current = "login_screen"
-    
-    def get_quote (self, feeling):
+
+    def get_quote(self, feeling):
         feeling = feeling.lower()
         available_feelings = glob.glob("*txt")
-        available_feelings = [Path(filename).stem for filename in available_feelings]
-        
+        available_feelings = [
+            Path(filename).stem for filename in available_feelings]
+
         if feeling in available_feelings:
-            with open(f"{feeling}.txt",encoding="utf8") as file:
+            with open(f"{feeling}.txt", encoding="utf8") as file:
                 quotes = file.readlines()
             self.ids.quote.text = random.choice(quotes)
         else:
             self.ids.quote.text = "Try another feeling"
+
 
 class ImageButton(ButtonBehavior, HoverBehavior, Image):
     pass

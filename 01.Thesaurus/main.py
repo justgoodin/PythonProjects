@@ -1,6 +1,6 @@
 from translator import translate
 
-#User I/O
+# User I/O
 word = input("Enter the word: ")
 
 while True:
@@ -14,13 +14,13 @@ while True:
         break
     else:
         print(f"Did you mean '{output[1]}'?")
-        print("Enter Y for yes, R to Retry, any other key to exit: ",end="")
+        print("Enter Y for yes, R to Retry, any other key to exit: ", end="")
         similar = input().strip()
         if similar == "Y" or similar == "y":
             output[0] = False
             word = output[1]
-        elif similar =="R" or similar == "r":
-            print("Enter the correct word: ",end="")
+        elif similar == "R" or similar == "r":
+            print("Enter the correct word: ", end="")
             word = input().strip()
         else:
             print("Exiting")
